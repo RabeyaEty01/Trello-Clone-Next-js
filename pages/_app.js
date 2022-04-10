@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Provider>
     </>
   );
