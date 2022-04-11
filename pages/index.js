@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { connect, useDispatch } from "react-redux";
+import styled from "styled-components";
 import { sort } from "../src/actions";
 import TrelloActionButton from "../src/components/TrelloActionButton";
 import TrelloList from "../src/components/TrelloList";
+
+const ListContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
 
 function App({ lists }) {
   const [winReady, setwinReady] = useState(false);
@@ -37,7 +43,7 @@ function App({ lists }) {
       <div className="App">
         <h2>To Do</h2>
         {winReady && (
-          <div style={styles.listContainer}>
+          <ListContainer>
             {lists.map((list) => (
               <TrelloList
                 listID={list.id}
@@ -47,19 +53,14 @@ function App({ lists }) {
               />
             ))}
             <TrelloActionButton list />
-          </div>
+          </ListContainer>
         )}
       </div>
     </DragDropContext>
   );
 }
 
-const styles = {
-  listContainer: {
-    display: "flex",
-    flexDirection: "row",
-  },
-};
+
 
 const mapStateToProps = (state) => ({
   lists: state.lists,
