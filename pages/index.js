@@ -41,7 +41,7 @@ function App({ lists }) {
   return (
     <DragDropContext onDragEnd={HandleDragEnd}>
       <div className="App">
-        <h2>To Do</h2>
+        <h2>Trello Clone</h2>
         {winReady && (
           <ListContainer>
             {lists.map((list) => (

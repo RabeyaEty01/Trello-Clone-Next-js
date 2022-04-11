@@ -15,7 +15,7 @@ const ListContainer = styled.div`
 
 const TrelloList = ({ title, cards, listID }) => {
   return (
-    <Droppable droppableId={String(listID)} type="card">
+    <Droppable droppableId={String(listID)}>
       {(provided) => (
         <ListContainer {...provided.droppableProps} ref={provided.innerRef}>
           <h4>{title}</h4>
